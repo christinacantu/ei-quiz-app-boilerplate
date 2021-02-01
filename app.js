@@ -5,25 +5,53 @@ const store = {
   // 5 or more questions are required
   questions: [
     {
-      question: 'What color is broccoli?',
+      question: 'How many boys has Christina tasted?',
       answers: [
-        'red',
-        'orange',
-        'pink',
-        'green'
+        '1',
+        '3',
+        '5',
+        '6'
       ],
-      correctAnswer: 'green'
+      correctAnswer: '3'
     },
     {
-      question: 'What is the current year?',
+      question: 'What is Christina’s boyfriend’s name?',
       answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
+        'Zachary',
+        'Joseph',
+        'TJ',
+        'Blake'
       ],
-      correctAnswer: '2019'
-    }
+      correctAnswer: 'Zachary'
+    },
+    {
+      question: 'Who was Christina’s favorite boy before her current one?',
+      answers: [
+        'Zachary',
+        'Joseph',
+        'TJ',
+        'Blake'
+      ],
+      correctAnswer: 'Blake'
+    },
+    {
+      question: 'Who does Christina want to have after her current boyfriend?',
+      answers: [
+        '1',
+        '3',
+        '5',
+        '6'
+      ],
+      correctAnswer: '3'
+    },
+    {
+      question: 'Does Christina love her current boyfriend more than he loves her or does he love her more than she loves him?',
+      answers: [
+        'Christina’s love is stronger!',
+        'Christina’s boyfriend’s love is stronger!'
+      ],
+      correctAnswer: "Christina’s love is stronger!"
+    },
   ],
   quizStarted: false,
   questionNumber: 0,
