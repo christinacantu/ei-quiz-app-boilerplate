@@ -58,12 +58,45 @@ const store = {
   score: 0
 };
 
+function renderQuiz() {
+  //this will be responsible for rendering the quiz to the dom
+  console.log('rendered render quiz');
+  const quizQuestion = '<p>this is a question</p>';
+
+  $('main').html(quizQuestion);
+  
+}
+
+function handleNextButtonClick() {
+  console.log('handled next button');
+}
+
+function handleCorrectAnswer() {
+  console.log('handled correct answer!');
+}
+
+function handleWrongAnswer() {
+  console.log('handled wrong answer!');
+}
+
+
+
+function handleQuizApp() {
+  renderQuiz();
+  handleNextButtonClick();
+  handleCorrectAnswer();
+  handleWrongAnswer();
+}
+
+
+
 /**
+ * Landing page 
+ * Next question
  * 
  * Technical requirements:
  * 
  * Your app should include a render() function, that regenerates the view each time the store is updated. 
- * See your course material and access support for more details.
  *
  * NO additional HTML elements should be added to the index.html file.
  *
