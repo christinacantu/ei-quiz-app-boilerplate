@@ -2,7 +2,6 @@
  * Example store structure
  */
 const store = {
-  // 5 or more questions are required
   questions: [
     {
       question: 'How many boys has Christina tasted?',
@@ -64,10 +63,9 @@ function renderQuiz() {
   const quizQuestion = '<p>this is a question</p>';
 
   $('main').html(quizQuestion);
-  
 }
 
-function handleNextButtonClick() {
+function handleCheckAnswer() {
   console.log('handled next button');
 }
 
@@ -79,13 +77,26 @@ function handleWrongAnswer() {
   console.log('handled wrong answer!');
 }
 
+function handleNextButton() {
+  console.log('handled next button!');
+}
 
+function handleStart() {
+  console.log('handled start!');
+}
+
+function handleClose() {
+  console.log('handled close!');
+}
 
 function handleQuizApp() {
   renderQuiz();
-  handleNextButtonClick();
+  handleStart();
+  handleCheckAnswer();
   handleCorrectAnswer();
   handleWrongAnswer();
+  handleNextButton();
+  handleClose();
 }
 
 
