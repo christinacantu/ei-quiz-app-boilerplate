@@ -60,33 +60,37 @@ const store = {
 function renderQuiz() {
   //this will be responsible for rendering the quiz to the dom
   console.log('rendered render quiz');
-  const landingPage = '<p>How well do you know Wistina?</p>';
-
+  const landingPage = 
+  `<p>How well do you know Wistina?</p>
+  <button class="start">Start!</button>
+  `;
   $('main').html(landingPage);
 }
 
 function handleStart() {
   console.log('handled start!');
+  $('.start').click(generateQuestionElement);
 }
 
-function generateQuestionElement() {
+function generateQuestionElement(question, index) {
   console.log('generate question element!');
-
-  return 
-  `
-  <p>Question what out of what</p>
-  <form>
-    <fieldset>
-      <legend>questions.question</legend>
-      <label for="answer">questions.answers.answer</label>
-      <input type="radio" name="answer">
-    </fieldset>
-  </form>
+console.log(index)
+console.log(question)
+  return `
+    <p>Question what out of what</p>
+    <form>
+      <fieldset>
+        <legend>questions.question</legend>
+        <label for="answer">questions.answers.answer</label>
+        <input type="radio" name="answer">
+      </fieldset>
+      <button class="next">Next</button>
+    </form>
   `
 }
 
-function generateQuestionElementsString() {
-  console.log('generate question elements string!');
+function generateQuestionsString() {
+  console.log('generate questions string!');
 
   const questions = store.questions.map((question, index) => generateQuestionElement(question, index));
   return questions.join('');
@@ -115,8 +119,6 @@ function handleClose() {
 function handleQuizApp() {
   renderQuiz();
   handleStart();
-  generateQuestionElement();
-  generateQuestionElementsString();
   handleCheckAnswer();
   handleCorrectAnswer();
   handleWrongAnswer();
