@@ -60,9 +60,36 @@ const store = {
 function renderQuiz() {
   //this will be responsible for rendering the quiz to the dom
   console.log('rendered render quiz');
-  const quizQuestion = '<p>this is a question</p>';
+  const landingPage = '<p>How well do you know Wistina?</p>';
 
-  $('main').html(quizQuestion);
+  $('main').html(landingPage);
+}
+
+function handleStart() {
+  console.log('handled start!');
+}
+
+function generateQuestionElement() {
+  console.log('generate question element!');
+
+  return 
+  `
+  <p>Question what out of what</p>
+  <form>
+    <fieldset>
+      <legend>questions.question</legend>
+      <label for="answer">questions.answers.answer</label>
+      <input type="radio" name="answer">
+    </fieldset>
+  </form>
+  `
+}
+
+function generateQuestionElementsString() {
+  console.log('generate question elements string!');
+
+  const questions = store.questions.map((question, index) => generateQuestionElement(question, index));
+  return questions.join('');
 }
 
 function handleCheckAnswer() {
@@ -81,10 +108,6 @@ function handleNextButton() {
   console.log('handled next button!');
 }
 
-function handleStart() {
-  console.log('handled start!');
-}
-
 function handleClose() {
   console.log('handled close!');
 }
@@ -92,12 +115,16 @@ function handleClose() {
 function handleQuizApp() {
   renderQuiz();
   handleStart();
+  generateQuestionElement();
+  generateQuestionElementsString();
   handleCheckAnswer();
   handleCorrectAnswer();
   handleWrongAnswer();
   handleNextButton();
   handleClose();
 }
+
+$(handleQuizApp);
 
 
 
