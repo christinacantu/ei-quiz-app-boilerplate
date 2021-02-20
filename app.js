@@ -60,7 +60,7 @@ const store = {
 function renderQuiz() {
   //this will be responsible for rendering the quiz to the dom
   console.log('rendered render quiz');
-  const landingPage = 
+  const landingPage =   
   `<p>How well do you know Wistina?</p>
   <button class="start">Start!</button>
   `;
@@ -69,19 +69,17 @@ function renderQuiz() {
 
 function handleStart() {
   console.log('handled start!');
-  $('.start').click(generateQuestionElement);
+  console.log($('.start').click(generateQuestionsString));
 }
 
-function generateQuestionElement(question, index) {
+function generateQuestionElement(question, index) {  //create an element for each question passed
   console.log('generate question element!');
-console.log(index)
-console.log(question)
   return `
     <p>Question what out of what</p>
     <form>
       <fieldset>
-        <legend>questions.question</legend>
-        <label for="answer">questions.answers.answer</label>
+        <legend>${question.question}</legend>
+        <label for="answer">${question.answers}</label>
         <input type="radio" name="answer">
       </fieldset>
       <button class="next">Next</button>
@@ -89,11 +87,11 @@ console.log(question)
   `
 }
 
-function generateQuestionsString() {
+function generateQuestionsString() {  //create a string that holds all of the store questions
   console.log('generate questions string!');
-
-  const questions = store.questions.map((question, index) => generateQuestionElement(question, index));
-  return questions.join('');
+  const questions = store.questions.map((question, index) => generateQuestionElement(question, index));  //map through store and pass question and index to generate question element
+  const questionsString = questions.join('');  //combine and store the results of mapping through store
+  $('main').html(questionsString);  //print the string after its been passed through generate question element
 }
 
 function handleCheckAnswer() {
@@ -127,8 +125,6 @@ function handleQuizApp() {
 }
 
 $(handleQuizApp);
-
-
 
 /**
  * Landing page 
