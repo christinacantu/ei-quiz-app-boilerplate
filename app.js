@@ -69,7 +69,7 @@ function renderQuiz() {
 
 function handleStart() {
   console.log('handled start!');
-  console.log($('.start').click(generateQuestionsString));
+  console.log($('.start').click(generateCurrentQuestionsString));
 }
 
 function generateQuestionElement(question, index) {  //create an element for each question passed
@@ -87,7 +87,7 @@ function generateQuestionElement(question, index) {  //create an element for eac
   `
 }
 
-function generateQuestionsString() {  //create a string that holds all of the store questions
+function generateCurrentQuestionsString() {  //create a string that holds all of the store questions
   console.log('generate questions string!');
   const questions = store.questions.map((question, index) => generateQuestionElement(question, index));  //map through store and pass question and index to generate question element
   const questionsString = questions.join('');  //combine and store the results of mapping through store
