@@ -4,7 +4,7 @@
 const store = {
   questions: [
     {
-      question: 'How many boys has Christina tasted?',
+      questionText: 'How many boys has Christina tasted?',
       answers: [
         '1',
         '3',
@@ -14,7 +14,7 @@ const store = {
       correctAnswer: '3'
     },
     {
-      question: 'What is Christina’s boyfriend’s name?',
+      questionText: 'What is Christina’s boyfriend’s name?',
       answers: [
         'Zachary',
         'Joseph',
@@ -24,7 +24,7 @@ const store = {
       correctAnswer: 'Zachary'
     },
     {
-      question: 'Who was Christina’s favorite boy before her current one?',
+      questionText: 'Who was Christina’s favorite boy before her current one?',
       answers: [
         'Zachary',
         'Joseph',
@@ -34,7 +34,7 @@ const store = {
       correctAnswer: 'Blake'
     },
     {
-      question: 'Who does Christina want to have after her current boyfriend?',
+      questionText: 'Who does Christina want to have after her current boyfriend?',
       answers: [
         '1',
         '3',
@@ -44,7 +44,7 @@ const store = {
       correctAnswer: '3'
     },
     {
-      question: 'Does Christina love her current boyfriend more than he loves her or does he love her more than she loves him?',
+      questionText: 'Does Christina love her current boyfriend more than he loves her or does he love her more than she loves him?',
       answers: [
         'Christina’s love is stronger!',
         'Christina’s boyfriend’s love is stronger!'
@@ -72,13 +72,13 @@ function handleStart() {
   console.log($('.start').click(generateCurrentQuestionsString));
 }
 
-function generateQuestionElement(question, index) {  //create an element for each question passed
+function generateQuestionElement(question) {  //create an element for each question passed
   console.log('generate question element!');
   return `
     <p>Question what out of what</p>
     <form>
       <fieldset>
-        <legend>${question.question}</legend>
+        <legend>${question.questionText}</legend>
         <label for="answer">${question.answers}</label>
         <input type="radio" name="answer">
       </fieldset>
@@ -89,9 +89,9 @@ function generateQuestionElement(question, index) {  //create an element for eac
 
 function generateCurrentQuestionsString() {  //create a string that holds all of the store questions
   console.log('generate questions string!');
-  const questions = store.questions.map((question, index) => generateQuestionElement(question, index));  //map through store and pass question and index to generate question element
-  const questionsString = questions.join('');  //combine and store the results of mapping through store
-  $('main').html(questionsString);  //print the string after its been passed through generate question element
+  const question = store.questions[store.questionNumber];
+  const questionString = generateQuestionElement(question);
+  $('main').html(questionString);  //print the string after its been passed through generate question element
 }
 
 function handleCheckAnswer() {
@@ -108,6 +108,7 @@ function handleWrongAnswer() {
 
 function handleNextButton() {
   console.log('handled next button!');
+  
 }
 
 function handleClose() {
