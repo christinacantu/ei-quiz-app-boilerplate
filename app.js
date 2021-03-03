@@ -69,7 +69,7 @@ function renderQuiz() {
 
 function handleStart() {
   console.log('handled start!');
-  console.log($('.start').click(generateCurrentQuestionsString));
+  console.log($('.start').click(generateCurrentQuestionString));
 }
 
 function generateQuestionElement(question) {  //create an element for each question passed
@@ -79,19 +79,31 @@ function generateQuestionElement(question) {  //create an element for each quest
     <form>
       <fieldset>
         <legend>${question.questionText}</legend>
-        <label for="answer">${question.answers}</label>
-        <input type="radio" name="answer">
+        ${generateQuestionAnswers(question.answers)}
       </fieldset>
       <button class="next">Next</button>
     </form>
   `
 }
 
-function generateCurrentQuestionsString() {  //create a string that holds all of the store questions
+function generateCurrentQuestionString() {  //create a string that holds all of the store questions
   console.log('generate questions string!');
   const question = store.questions[store.questionNumber];
   const questionString = generateQuestionElement(question);
   $('main').html(questionString);  //print the string after its been passed through generate question element
+}
+
+function generateQuestionAnswers(answers) {
+  console.log('generated answers!');
+  let answersString = '';
+  for (const answer of answers) {
+    console.log(answer);
+    answersString += `
+    <input type="radio" name="answer">
+    <label for="answer">${answer}</label>
+  `
+  }
+  return answersString;
 }
 
 function handleCheckAnswer() {
