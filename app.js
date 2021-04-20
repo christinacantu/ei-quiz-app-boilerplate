@@ -108,6 +108,10 @@ function generateQuestionAnswers(answers) {
 
 function handleCheckAnswer() {
   console.log('handled next button');
+  //store user's answer in userAnswer variable
+  //take userAnswer and compare it to the correctAnswer
+  //if the answer is correct, display handleCorrectAnswer
+  //if the answer is wrong, display handleWrongAnswer
 }
 
 function handleCorrectAnswer() {
@@ -116,6 +120,7 @@ function handleCorrectAnswer() {
 
 function handleWrongAnswer() {
   console.log('handled wrong answer!');
+
 }
 
 function handleNextButton() {
