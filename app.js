@@ -108,10 +108,16 @@ function generateQuestionAnswers(answers) {
 
 function handleCheckAnswer() {
   console.log('handled next button');
-  //store user's answer in userAnswer variable
+  
   //take userAnswer and compare it to the correctAnswer
   //if the answer is correct, display handleCorrectAnswer
   //if the answer is wrong, display handleWrongAnswer
+}
+
+function handleUserAnswer() {
+  const userAnswer = $()
+  //figure out user's answer
+  //store user's answer in userAnswer variable
 }
 
 function handleCorrectAnswer() {
