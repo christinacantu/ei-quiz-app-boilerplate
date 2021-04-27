@@ -99,8 +99,8 @@ function generateQuestionAnswers(answers) {
   for (const answer of answers) {
     console.log(answer);
     answersString += `
-    <input type="radio" name="answer">
-    <label for="answer">${answer}</label>
+    <input type="radio" name="answer" value="${answer}">
+    <label for="${answer}">${answer}</label>
   `
   }
   return answersString;
@@ -115,10 +115,15 @@ function handleCheckAnswer() {
 }
 
 function handleUserAnswer() {
-  const userAnswer = $()
+  $('.next').click(function(event) {
+    event.preventDefault();
+    const userAnswer = $('input[name="answer"]');
+    // console.log(userAnswer); butt
+  })
+}
   //figure out user's answer
   //store user's answer in userAnswer variable
-}
+
 
 function handleCorrectAnswer() {
   console.log('handled correct answer!');
@@ -141,6 +146,7 @@ function handleClose() {
 function handleQuizApp() {
   renderQuiz();
   handleStart();
+  handleUserAnswer();
   handleCheckAnswer();
   handleCorrectAnswer();
   handleWrongAnswer();
