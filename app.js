@@ -76,7 +76,7 @@ function generateQuestionElement(question) {  //create an element for each quest
   console.log('generate question element!');
   return `
     <p>Question what out of what</p>
-    <form>
+    <form class="question-form">
       <fieldset>
         <legend>${question.questionText}</legend>
         ${generateQuestionAnswers(question.answers)}
@@ -115,10 +115,10 @@ function handleCheckAnswer() {
 }
 
 function handleUserAnswer() {
-  $('.next').click(function(event) {
+  $(document).on('submit', '.question-form', function(event) {
     event.preventDefault();
-    const userAnswer = $('input[name="answer"]');
-    // console.log(userAnswer); butt
+    const userAnswer = $('input[type="radio"] [name="answer"]:checked').val();
+    console.log(userAnswer);
   })
 }
   //figure out user's answer
