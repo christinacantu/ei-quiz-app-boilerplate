@@ -108,7 +108,7 @@ function generateQuestionAnswers(answers) {
 
 function handleCheckAnswer() {
   console.log('handled next button');
-  
+  for (let i =0;i <= )
   //take userAnswer and compare it to the correctAnswer
   //if the answer is correct, display handleCorrectAnswer
   //if the answer is wrong, display handleWrongAnswer
@@ -118,13 +118,9 @@ function handleUserAnswer() {
   $(document).on('submit', '.question-form', function(event) {
     event.preventDefault();
     const userAnswer = $('input[name="answer"]:checked').val();
-
-
+    handleCheckAnswer();
   })
 }
-  //figure out user's answer
-  //store user's answer in userAnswer variable
-
 
 function handleCorrectAnswer() {
   console.log('handled correct answer!');
@@ -148,7 +144,6 @@ function handleQuizApp() {
   renderQuiz();
   handleStart();
   handleUserAnswer();
-  handleCheckAnswer();
   handleCorrectAnswer();
   handleWrongAnswer();
   handleNextButton();
