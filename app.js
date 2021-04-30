@@ -117,8 +117,9 @@ function handleCheckAnswer() {
 function handleUserAnswer() {
   $(document).on('submit', '.question-form', function(event) {
     event.preventDefault();
-    const userAnswer = $('input[type="radio"] [name="answer"]:checked').val();
-    console.log(userAnswer);
+    const userAnswer = $('input[name="answer"]:checked').val();
+
+
   })
 }
   //figure out user's answer
