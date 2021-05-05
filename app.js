@@ -106,19 +106,22 @@ function generateQuestionAnswers(answers) {
   return answersString;
 }
 
-function handleCheckAnswer() {
+function handleCheckAnswer(userAnswer) {
   console.log('handled next button');
-  for (let i =0;i <= )
-  //take userAnswer and compare it to the correctAnswer
-  //if the answer is correct, display handleCorrectAnswer
-  //if the answer is wrong, display handleWrongAnswer
+    if (userAnswer === store.questions[store.questionNumber].correctAnswer) {
+      console.log("you got it right!");
+      handleCorrectAnswer();
+    } else {
+      console.log("you got it wrong!");
+      handleWrongAnswer();
+    }
 }
 
 function handleUserAnswer() {
   $(document).on('submit', '.question-form', function(event) {
     event.preventDefault();
     const userAnswer = $('input[name="answer"]:checked').val();
-    handleCheckAnswer();
+    handleCheckAnswer(userAnswer);
   })
 }
 
@@ -128,7 +131,6 @@ function handleCorrectAnswer() {
 
 function handleWrongAnswer() {
   console.log('handled wrong answer!');
-
 }
 
 function handleNextButton() {
