@@ -106,7 +106,7 @@ function generateQuestionAnswers(answers) {
   return answersString;
 }
 
-function handleCheckAnswer(userAnswer) {
+function checkAnswer(userAnswer) {
   console.log('handled next button');
     if (userAnswer === store.questions[store.questionNumber].correctAnswer) {
       console.log("you got it right!");
@@ -121,7 +121,7 @@ function handleUserAnswer() {
   $(document).on('submit', '.question-form', function(event) {
     event.preventDefault();
     const userAnswer = $('input[name="answer"]:checked').val();
-    handleCheckAnswer(userAnswer);
+    checkAnswer(userAnswer);
   })
 }
 
