@@ -81,7 +81,7 @@ function generateQuestionElement(question) {  //create an element for each quest
         <legend>${question.questionText}</legend>
         ${generateQuestionAnswers(question.answers)}
       </fieldset>
-      <button class="next">Next</button>
+      <button class="check">Check your answer!</button>
     </form>
   `
 }
@@ -131,6 +131,7 @@ function handleCorrectAnswer() {
   console.log('handled correct answer!');
   return `
     <p>Biiiiiiitch, yeeeeeees</p>
+    <button class="next">Next</button>
   `
 }
 
@@ -138,12 +139,12 @@ function handleWrongAnswer() {
   console.log('handled wrong answer!');
   return `
     <p>Really, bitch?</p>
+    <button class="next">Next question!</button>
   `
 }
 
 function handleNextButton() {
   console.log('handled next button!');
-  
 }
 
 function handleClose() {
