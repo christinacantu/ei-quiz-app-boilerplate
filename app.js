@@ -108,13 +108,15 @@ function generateQuestionAnswers(answers) {
 
 function checkAnswer(userAnswer) {
   console.log('handled next button');
+    let message = '';
     if (userAnswer === store.questions[store.questionNumber].correctAnswer) {
       console.log("you got it right!");
-      handleCorrectAnswer();
+      message = handleCorrectAnswer();
     } else {
       console.log("you got it wrong!");
-      handleWrongAnswer();
+      message = handleWrongAnswer();
     }
+    $('main').html(message)
 }
 
 function handleUserAnswer() {
@@ -127,10 +129,16 @@ function handleUserAnswer() {
 
 function handleCorrectAnswer() {
   console.log('handled correct answer!');
+  return `
+    <p>Biiiiiiitch, yeeeeeees</p>
+  `
 }
 
 function handleWrongAnswer() {
   console.log('handled wrong answer!');
+  return `
+    <p>Really, bitch?</p>
+  `
 }
 
 function handleNextButton() {
