@@ -144,7 +144,11 @@ function handleWrongAnswer() {
 }
 
 function handleNextButton() {
-  console.log('handled next button!');
+  console.log('handled next button!');  
+  $('document').on('click', '.next', function(event) {  //bubble up
+    questionNumber++;
+    console.log(questionNumber);
+  })  
 }
 
 function handleClose() {
