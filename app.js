@@ -99,7 +99,7 @@ function generateQuestionAnswers(answers) {
   for (const answer of answers) {
     console.log(answer);
     answersString += `
-    <input type="radio" name="answer" value="${answer}">
+    <input type="radio" name="answer" value="${answer}" required="required">
     <label for="${answer}">${answer}</label>
   `
   }
