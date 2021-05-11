@@ -75,7 +75,7 @@ function handleStart() {
 function generateQuestionElement(question) {  //create an element for each question passed
   console.log('generate question element!');
   return `
-    <p>Question what out of what</p>
+    <p>Question ${store.questionNumber+1} out of  ${store.questions.length}</p>
     <form class="question-form">
       <fieldset>
         <legend>${question.questionText}</legend>
@@ -184,8 +184,6 @@ $(handleQuizApp);
 
 // These functions handle events (submit, click, etc)
 
-
-// Users should not be able to skip questions.
 // Users should also be able to see which question they're on (for instance, "7 out of 10") and their current score ("5 correct, 2 incorrect").
 // Upon submitting an answer, users should:
 // receive textual feedback about their answer. If they were incorrect, they should be told the correct answer.
