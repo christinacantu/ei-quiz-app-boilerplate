@@ -144,7 +144,7 @@ function handleNextButton() {
     } else {
       const finalPage = 
       `
-        <p>Your final score is blah out of blah!<p>
+        <p>Your final score is ${store.score} out of ${store.questions.length}!<p>
       `
       $('main').html(finalPage);
     }
