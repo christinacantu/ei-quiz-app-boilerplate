@@ -59,7 +59,6 @@ const store = {
 
 function renderQuiz() {
   //this will be responsible for rendering the quiz to the dom
-  console.log('rendered render quiz');
   const landingPage =   
   `<p>How well do you know Wistina?</p>
   <button class="start">Start!</button>
@@ -68,14 +67,13 @@ function renderQuiz() {
 }
 
 function handleStart() {
-  console.log('handled start!');
   console.log($('.start').click(generateCurrentQuestionString));
 }
 
 function generateQuestionElement(question) {  //create an element for each question passed
-  console.log('generate question element!');
   return `
     <p>Question ${store.questionNumber+1} out of  ${store.questions.length}</p>
+    <p> You've gotten ${store.score} out of ${store.questions.length} questions right!</p>
     <form class="question-form">
       <fieldset>
         <legend>${question.questionText}</legend>
@@ -87,17 +85,14 @@ function generateQuestionElement(question) {  //create an element for each quest
 }
 
 function generateCurrentQuestionString() {  //create a string that holds all of the store questions
-  console.log('generate questions string!');
   const question = store.questions[store.questionNumber];
   const questionString = generateQuestionElement(question);
   $('main').html(questionString);  //print the string after its been passed through generate question element
 }
 
 function generateQuestionAnswers(answers) {
-  console.log('generated answers!');
   let answersString = '';
   for (const answer of answers) {
-    console.log(answer);
     answersString += `
     <input type="radio" name="answer" value="${answer}" required="required">
     <label for="${answer}">${answer}</label>
@@ -107,13 +102,11 @@ function generateQuestionAnswers(answers) {
 }
 
 function checkAnswer(userAnswer) {
-  console.log('handled next button');
     let message = '';
     if (userAnswer === store.questions[store.questionNumber].correctAnswer) {
-      console.log("you got it right!");
+      let correctScore = store.score++
       message = handleCorrectAnswer();
     } else {
-      console.log("you got it wrong!");
       message = handleWrongAnswer();
     }
     $('main').html(message);
@@ -128,7 +121,6 @@ function handleUserAnswer() {
 }
 
 function handleCorrectAnswer() {
-  console.log('handled correct answer!');
   return `
     <p>Biiiiiiitch, yeeeeeees</p>
     <button class="next">Next question!</button>
@@ -136,15 +128,14 @@ function handleCorrectAnswer() {
 }
 
 function handleWrongAnswer() {
-  console.log('handled wrong answer!');
   return `
     <p>Really, bitch?</p>
+    <p>The correct answer is ${store.questions[store.questionNumber].correctAnswer}</p>
     <button class="next">Next question!</button>
   `
 }
 
 function handleNextButton() {
-  console.log('handled next button!'); 
   $(document).on('click', '.next', function(event) {  //bubble up
     store.questionNumber++;
 
@@ -184,9 +175,7 @@ $(handleQuizApp);
 
 // These functions handle events (submit, click, etc)
 
-// Users should also be able to see which question they're on (for instance, "7 out of 10") and their current score ("5 correct, 2 incorrect").
-// Upon submitting an answer, users should:
-// receive textual feedback about their answer. If they were incorrect, they should be told the correct answer.
+// If they were incorrect, they should be told the correct answer.
 // be moved onto the next question (or interact with an element to move on).
 // Users should be shown their overall score at the end of the quiz. In other words, how many questions they got right out of the total questions asked.
 // Users should be able to start a new quiz.
