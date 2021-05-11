@@ -145,14 +145,17 @@ function handleNextButton() {
       const finalPage = 
       `
         <p>Your final score is ${store.score} out of ${store.questions.length}!<p>
+        <button class="restart">Restart!</button>
       `
       $('main').html(finalPage);
     }
   })  
 }
 
-function handleClose() {
-  console.log('handled close!');
+function handleRestart() {
+  $(document).on('click', '.restart', function(event) {
+    renderQuiz();
+  })
 }
 
 function handleQuizApp() {
@@ -162,7 +165,7 @@ function handleQuizApp() {
   handleCorrectAnswer();
   handleWrongAnswer();
   handleNextButton();
-  handleClose();
+  handleRestart();
 }
 
 $(handleQuizApp);
@@ -180,6 +183,3 @@ $(handleQuizApp);
 /********** EVENT HANDLER FUNCTIONS **********/
 
 // These functions handle events (submit, click, etc)
-
-// Users should be shown their overall score at the end of the quiz. In other words, how many questions they got right out of the total questions asked.
-// Users should be able to start a new quiz.
