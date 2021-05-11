@@ -116,7 +116,7 @@ function checkAnswer(userAnswer) {
       console.log("you got it wrong!");
       message = handleWrongAnswer();
     }
-    $('main').html(message)
+    $('main').html(message);
 }
 
 function handleUserAnswer() {
@@ -131,7 +131,7 @@ function handleCorrectAnswer() {
   console.log('handled correct answer!');
   return `
     <p>Biiiiiiitch, yeeeeeees</p>
-    <button class="next">Next</button>
+    <button class="next">Next question!</button>
   `
 }
 
@@ -144,10 +144,10 @@ function handleWrongAnswer() {
 }
 
 function handleNextButton() {
-  console.log('handled next button!');  
-  $('document').on('click', '.next', function(event) {  //bubble up
-    questionNumber++;
-    console.log(questionNumber);
+  console.log('handled next button!'); 
+  $(document).on('click', '.next', function(event) {  //bubble up
+    store.questionNumber++;
+    console.log(store.questionNumber);
   })  
 }
 
