@@ -141,6 +141,12 @@ function handleNextButton() {
 
     if (store.questionNumber < store.questions.length) {
       generateCurrentQuestionString(store.questions[store.questionNumber]);
+    } else {
+      const finalPage = 
+      `
+        <p>Your final score is blah out of blah!<p>
+      `
+      $('main').html(finalPage);
     }
   })  
 }
@@ -175,7 +181,5 @@ $(handleQuizApp);
 
 // These functions handle events (submit, click, etc)
 
-// If they were incorrect, they should be told the correct answer.
-// be moved onto the next question (or interact with an element to move on).
 // Users should be shown their overall score at the end of the quiz. In other words, how many questions they got right out of the total questions asked.
 // Users should be able to start a new quiz.
