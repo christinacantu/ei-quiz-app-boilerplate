@@ -147,7 +147,10 @@ function handleNextButton() {
   console.log('handled next button!'); 
   $(document).on('click', '.next', function(event) {  //bubble up
     store.questionNumber++;
-    console.log(store.questionNumber);
+
+    if (store.questionNumber < store.questions.length) {
+      generateCurrentQuestionString(store.questions[store.questionNumber]);
+    }
   })  
 }
 
@@ -167,21 +170,7 @@ function handleQuizApp() {
 
 $(handleQuizApp);
 
-/**
- * Landing page 
- * Next question
- * 
- * Technical requirements:
- * 
- * Your app should include a render() function, that regenerates the view each time the store is updated. 
- *
- * NO additional HTML elements should be added to the index.html file.
- *
- * You may add attributes (classes, ids, etc) to the existing HTML elements, or link stylesheets or additional scripts if necessary
- *
- * SEE BELOW FOR THE CATEGORIES OF THE TYPES OF FUNCTIONS YOU WILL BE CREATING 👇
- * 
- */
+/** 
 
 /********** TEMPLATE GENERATION FUNCTIONS **********/
 
@@ -194,3 +183,12 @@ $(handleQuizApp);
 /********** EVENT HANDLER FUNCTIONS **********/
 
 // These functions handle events (submit, click, etc)
+
+
+// Users should not be able to skip questions.
+// Users should also be able to see which question they're on (for instance, "7 out of 10") and their current score ("5 correct, 2 incorrect").
+// Upon submitting an answer, users should:
+// receive textual feedback about their answer. If they were incorrect, they should be told the correct answer.
+// be moved onto the next question (or interact with an element to move on).
+// Users should be shown their overall score at the end of the quiz. In other words, how many questions they got right out of the total questions asked.
+// Users should be able to start a new quiz.
