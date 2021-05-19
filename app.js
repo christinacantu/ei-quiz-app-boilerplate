@@ -61,7 +61,7 @@ function renderQuiz() {
   //this will be responsible for rendering the quiz to the dom
   const landingPage =   
   `<p>How well do you know Wistina?</p>
-  <button class="start">Start!</button>
+  <button class="start bg-blue-500 rounded">Start!</button>
   `;
   $('main').html(landingPage);
 }
@@ -81,7 +81,7 @@ function generateQuestionElement(question) {  //create an element for each quest
         <legend>${question.questionText}</legend>
         ${generateQuestionAnswers(question.answers)}
       </fieldset>
-      <button class="check">Check your answer!</button>
+      <button class="check bg-blue-500 rounded">Check your answer!</button>
     </form>
   `
 }
@@ -125,7 +125,7 @@ function handleUserAnswer() {
 function handleCorrectAnswer() {
   return `
     <p>Biiiiiiitch, yeeeeeees</p>
-    <button class="next">Next question!</button>
+    <button class="next bg-blue-500 rounded">Next question!</button>
   `
 }
 
@@ -133,7 +133,7 @@ function handleWrongAnswer() {
   return `
     <p>Really, bitch?</p>
     <p>The correct answer is ${store.questions[store.questionNumber].correctAnswer}</p>
-    <button class="next">Next question!</button>
+    <button class="next bg-blue-500 rounded">Next question!</button>
   `
 }
 
@@ -147,7 +147,7 @@ function handleNextButton() {
       const finalPage = 
       `
         <p>Your final score is ${store.score} out of ${store.questions.length}!<p>
-        <button class="restart">Restart!</button>
+        <button class="restart bg-blue-500 rounded border-2 border-transparent p-16 block">Restart!</button>
       `
       $('main').html(finalPage);
     }
