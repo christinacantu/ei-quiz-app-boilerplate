@@ -60,10 +60,23 @@ const store = {
 function renderQuiz() {
   //this will be responsible for rendering the quiz to the dom
   const landingPage =   
-  `<p>How well do you know Wistina?</p>
-  <button class="start bg-blue-500 rounded">Start!</button>
+  `
+  <div class="flex">
+    <p>How well do you know Wistina?</p>
+    <button class="start bg-blue-500 rounded">Start!</button>
+  </div>
   `;
   $('main').html(landingPage);
+}
+
+function renderHeader() {
+  const header =
+  `
+  <header>
+    <h1 class="text-3xl">Christina's World</h1>
+  </header>
+  `;
+  $('body').prepend(header);
 }
 
 function handleStart() {
@@ -164,6 +177,7 @@ function handleRestart() {
 
 function handleQuizApp() {
   renderQuiz();
+  renderHeader();
   handleStart();
   handleUserAnswer();
   handleCorrectAnswer();
