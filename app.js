@@ -4,7 +4,7 @@
 const store = {
   questions: [
     {
-      questionText: 'How many boys has Christina tasted?',
+      questionText: 'How many boys has Christina tasted?',  
       answers: [
         '1',
         '3',
