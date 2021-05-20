@@ -4,7 +4,7 @@
 const store = {
   questions: [
     {
-      questionText: 'How many boys has Christina tasted?',
+      questionText: 'How many boys has Christina tasted?',  
       answers: [
         '1',
         '3',
@@ -137,7 +137,7 @@ function checkAnswer(userAnswer) {
 }
 
 function handleUserAnswer() {
-  $(document).on('submit', '.question-form', function(event) {
+  $('document').on('submit', '.question-form', function(event) {
     event.preventDefault();
     const userAnswer = $('input[name="answer"]:checked').val();
     checkAnswer(userAnswer);
