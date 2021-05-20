@@ -61,9 +61,9 @@ function renderQuiz() {
   //this will be responsible for rendering the quiz to the dom
   const landingPage =   
   `
-  <div class="flex">
-    <p>How well do you know Wistina?</p>
-    <button class="start bg-blue-500 rounded">Start!</button>
+  <div class=" h-screen flex flex-col items-center justify-center bg-green-800">
+    <p class="pb-6 text-3xl  text-white">How well do you know Wistina?</p>
+    <button class="p-9 start bg-blue-500 rounded">Start!</button>
   </div>
   `;
   $('main').html(landingPage);
@@ -72,8 +72,8 @@ function renderQuiz() {
 function renderHeader() {
   const header =
   `
-  <header>
-    <h1 class="text-3xl">Christina's World</h1>
+  <header class="flex justify-center bg-green-600">
+    <h1 class="text-5xl">Christina's World</h1>
   </header>
   `;
   $('body').prepend(header);
@@ -87,15 +87,19 @@ function handleStart() {
 
 function generateQuestionElement(question) {  //create an element for each question passed
   return `
-    <p>Question ${store.questionNumber+1} out of ${store.questions.length}</p>
-    <p> You've gotten ${store.score} out of ${store.questions.length} questions right!</p>
+  <div>
+    <div class="bg-green-500">
+      <p>Question ${store.questionNumber+1} out of ${store.questions.length}</p>
+      <p> You've gotten ${store.score} out of ${store.questions.length} questions right!</p>
+    </div>
     <form class="question-form">
       <fieldset>
         <legend>${question.questionText}</legend>
         ${generateQuestionAnswers(question.answers)}
       </fieldset>
-      <button class="check bg-blue-500 rounded">Check your answer!</button>
+      <button class="p-9 check bg-blue-500 rounded">Check your answer!</button>
     </form>
+  </div>
   `
 }
 
@@ -106,13 +110,18 @@ function generateCurrentQuestionString() {  //create a string that holds all of 
 }
 
 function generateQuestionAnswers(answers) {
-  let answersString = '';
+  let answersString = '<div class="grid grid-cols-2 gap-4 pb-6">';
   for (const answer of answers) {
     answersString += `
-    <input type="radio" name="answer" value="${answer}" required="required">
-    <label for="${answer}">${answer}</label>
+    <div class="bg-red-300 p-10">
+      <label for="${answer}">
+        <input type="radio" id="${answer}" name="answer" value="${answer}" required="required">
+        ${answer}
+      </label>
+    </div>
   `
   }
+  answersString += '</div>';
   return answersString;
 }
 
@@ -138,7 +147,7 @@ function handleUserAnswer() {
 function handleCorrectAnswer() {
   return `
     <p>Biiiiiiitch, yeeeeeees</p>
-    <button class="next bg-blue-500 rounded">Next question!</button>
+    <button class="p-9 next bg-blue-500 rounded">Next question!</button>
   `
 }
 
@@ -146,7 +155,7 @@ function handleWrongAnswer() {
   return `
     <p>Really, bitch?</p>
     <p>The correct answer is ${store.questions[store.questionNumber].correctAnswer}</p>
-    <button class="next bg-blue-500 rounded">Next question!</button>
+    <button class="p-9 next bg-blue-500 rounded">Next question!</button>
   `
 }
 
