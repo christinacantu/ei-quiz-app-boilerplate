@@ -137,7 +137,7 @@ function checkAnswer(userAnswer) {
 }
 
 function handleUserAnswer() {
-  $('document').on('submit', '.question-form', function(event) {
+  $(document).on('submit', '.question-form', function(event) {
     event.preventDefault();
     const userAnswer = $('input[name="answer"]:checked').val();
     checkAnswer(userAnswer);
