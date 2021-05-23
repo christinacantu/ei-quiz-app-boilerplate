@@ -88,7 +88,7 @@ function handleStart() {
 function generateQuestionElement(question) {  //create an element for each question passed
   return `
   <div>
-    <div class="bg-green-500">
+    <div class="mb-10 bg-green-500">
       <p>Question ${store.questionNumber+1} out of ${store.questions.length}</p>
       <p> You've gotten ${store.score} out of ${store.questions.length} questions right!</p>
     </div>
@@ -148,16 +148,20 @@ function handleUserAnswer() {
 
 function handleCorrectAnswer() {
   return `
-    <p>Biiiiiiitch, yeeeeeees</p>
+  <div class="text-center pt-10 text-3xl">
+    <p class="pb-10">Biiiiiiitch, yeeeeeees</p>
     <button class="p-9 next bg-blue-500 rounded">Next question!</button>
+  </div>
   `
 }
 
 function handleWrongAnswer() {
   return `
-    <p>Really, bitch?</p>
-    <p>The correct answer is ${store.questions[store.questionNumber].correctAnswer}</p>
-    <button class="p-9 next bg-blue-500 rounded">Next question!</button>
+  <div class="text-center pt-10 text-3xl">
+    <p class="pb-3">Really, bitch?</p>
+    <p class="pb-10">The correct answer is ${store.questions[store.questionNumber].correctAnswer}</p>
+    <button class="p-9 next bg-blue-500 rounded text-xl">Next question!</button>
+  </div>
   `
 }
 
