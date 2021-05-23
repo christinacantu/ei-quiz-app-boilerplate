@@ -92,13 +92,15 @@ function generateQuestionElement(question) {  //create an element for each quest
       <p>Question ${store.questionNumber+1} out of ${store.questions.length}</p>
       <p> You've gotten ${store.score} out of ${store.questions.length} questions right!</p>
     </div>
-    <form class="question-form">
-      <fieldset>
-        <legend>${question.questionText}</legend>
-        ${generateQuestionAnswers(question.answers)}
-      </fieldset>
-      <button class="p-9 check bg-blue-500 rounded">Check your answer!</button>
-    </form>
+    <div>
+      <form class="question-form">
+        <fieldset>
+          <legend class="bg-green-800 text-center">${question.questionText}</legend>
+          ${generateQuestionAnswers(question.answers)}
+        </fieldset>
+        <div class="text-center"><button class="p-9 check bg-blue-500 rounded">Check your answer!</button></div>
+      </form>
+    </div>
   </div>
   `
 }
@@ -110,7 +112,7 @@ function generateCurrentQuestionString() {  //create a string that holds all of 
 }
 
 function generateQuestionAnswers(answers) {
-  let answersString = '<div class="grid grid-cols-2 gap-4 pb-6">';
+  let answersString = '<div class="grid grid-cols-2 gap-4 pt-10 pb-6">';
   for (const answer of answers) {
     answersString += `
     <div class="bg-red-300 p-10">
