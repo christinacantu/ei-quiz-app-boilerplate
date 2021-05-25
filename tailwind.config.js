@@ -5,6 +5,12 @@ module.exports = {
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+      extend: {
+          backgroundImage: theme => ({
+            'bitch-yes': "url('christinacantu/Projects/ei-quiz-app-boilerplate/IMG_0044.jpg')",
+            'really-bitch': "url('IMG_0045.jpg')",
+          })
+      },
     screens: {
       sm: '640px',
       md: '768px',
