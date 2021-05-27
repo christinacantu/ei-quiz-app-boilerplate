@@ -98,7 +98,7 @@ function generateQuestionElement(question) {  //create an element for each quest
           <legend class="bg-green-800 text-center">${question.questionText}</legend>
           ${generateQuestionAnswers(question.answers)}
         </fieldset>
-        <div class="text-center"><button class="p-9 check bg-blue-500 rounded">Check your answer!</button></div>
+        <div class="text-center mb-5"><button class="p-9 check bg-blue-500 rounded">Check your answer!</button></div>
       </form>
     </div>
   </div>
@@ -112,10 +112,10 @@ function generateCurrentQuestionString() {  //create a string that holds all of 
 }
 
 function generateQuestionAnswers(answers) {
-  let answersString = '<div class="grid grid-cols-2 gap-4 pt-10 pb-6">';
+  let answersString = '<div class="pt-10 pb-6 md:grid md:grid-cols-2 md:gap-4">';
   for (const answer of answers) {
     answersString += `
-    <div class="bg-red-300 p-10">
+    <div class="mb-5 bg-red-300 p-10">
       <label for="${answer}">
         <input type="radio" id="${answer}" name="answer" value="${answer}" required="required">
         ${answer}
@@ -148,7 +148,7 @@ function handleUserAnswer() {
 
 function handleCorrectAnswer() {
   return `
-  <div class="text-center pt-10 text-3xl bg-no-repeat bg-center h-screen">
+  <div class="text-center pt-10 text-3xl bg-no-repeat bg-center h-2/4 md:h-screen">
     <div class="bg-no-repeat bg-center h-full" style="background-image: url(images/IMG_0044.jpg)"></div>
     <p class="pb-10">Biiiiiiitch, yeeeeeees</p>
     <button class="mb-8 p-9 next bg-blue-500 rounded">Next question!</button>
