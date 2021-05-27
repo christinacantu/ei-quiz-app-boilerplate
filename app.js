@@ -148,19 +148,21 @@ function handleUserAnswer() {
 
 function handleCorrectAnswer() {
   return `
-  <div class="text-center pt-10 text-3xl bg-bitch-yes">
+  <div class="text-center pt-10 text-3xl bg-no-repeat bg-center h-screen">
+    <div class="bg-no-repeat bg-center h-full" style="background-image: url(images/IMG_0044.jpg)"></div>
     <p class="pb-10">Biiiiiiitch, yeeeeeees</p>
-    <button class="p-9 next bg-blue-500 rounded">Next question!</button>
+    <button class="mb-8 p-9 next bg-blue-500 rounded">Next question!</button>
   </div>
   `
 }
 
 function handleWrongAnswer() {
   return `
-  <div class="text-center pt-10 text-3xl bg-really-bitch bg-cover">
+  <div class="text-center pt-10 text-3xl bg-no-repeat bg-center h-screen">
+    <div class="bg-center bg-no-repeat h-full" style="background-image: url(images/IMG_0045.jpg)"></div>
     <p class="pb-3">Really, bitch?</p>
     <p class="pb-10">The correct answer is ${store.questions[store.questionNumber].correctAnswer}</p>
-    <button class="p-9 next bg-blue-500 rounded text-xl">Next question!</button>
+    <button class="mb-8 p-9 next bg-blue-500 rounded text-xl">Next question!</button>
   </div>
   `
 }
