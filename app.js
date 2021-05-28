@@ -149,7 +149,7 @@ function handleUserAnswer() {
 function handleCorrectAnswer() {
   return `
   <div class="text-center pt-10 pl-2 pr-2 text-3xl h-screen">
-    <div class="bg-no-repeat h-3/4 w-auto" style="background-image: url(images/IMG_0044.jpg)"></div>
+    <img src="images/IMG_0044.jpg" class="pb-10">
     <p class="pb-10">Biiiiiiitch, yeeeeeees</p>
     <button class="mb-8 p-9 next bg-blue-500 rounded">Next question!</button>
   </div>
@@ -159,7 +159,7 @@ function handleCorrectAnswer() {
 function handleWrongAnswer() {
   return `
   <div class="text-center pt-10 text-3xl h-screen">
-    <div class="bg-center bg-no-repeat h-full" style="background-image: url(images/IMG_0045.jpg)"></div>
+    <img src="images/IMG_0045.jpg" class="pb-10">
     <p class="pb-3">Really, bitch?</p>
     <p class="pb-10">The correct answer is ${store.questions[store.questionNumber].correctAnswer}</p>
     <button class="mb-8 p-9 next bg-blue-500 rounded text-xl">Next question!</button>
@@ -176,8 +176,10 @@ function handleNextButton() {
     } else {
       const finalPage = 
       `
-        <p>Your final score is ${store.score} out of ${store.questions.length}!<p>
+      <div class="flex flex-col items-center justify-center h-screen">
+        <p class="pb-10">Your final score is ${store.score} out of ${store.questions.length}!<p>
         <button class="restart bg-blue-500 rounded border-2 border-transparent p-16 block">Restart!</button>
+      </div>
       `
       $('main').html(finalPage);
     }
