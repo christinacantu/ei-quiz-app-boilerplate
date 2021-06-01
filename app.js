@@ -161,8 +161,8 @@ function handleWrongAnswer() {
   <div class="text-center pt-10 pl-2 pr-2 text-3xl h-screen md:flex md:flex-col md:items-center">
     <img src="images/IMG_0045.jpg" class="pb-10">
     <p class="pb-3">Really, bitch?</p>
-    <p class="pb-10">The correct answer is ${store.questions[store.questionNumber].correctAnswer}</p>
-    <button class="mb-8 p-9 next bg-blue-500 rounded text-xl">Next question!</button>
+    <p class="pb-10">The correct answer is ${store.questions[store.questionNumber].correctAnswer}!</p>
+    <button class="p-9 next bg-blue-500 rounded">Next question!</button>
   </div>
   `
 }
